@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import TodoList from './components/TodoList';
-import { add } from './actions';
+import { add, toggle } from './actions';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoList todos={this.props.todos}/>
+        <TodoList toggle={this.props.toggle} todos={this.props.todos}/>
         <form onSubmit={(event) => {
             event.preventDefault();
             this.props.add(event.target[0].value)
@@ -39,4 +39,4 @@ const mapStateToProps = (state) => {
 // is only a dumb React component. We pass in all of the functions that
 // are reliant on Redux, along with the component itself, so that Redux
 // makes itself known to this component.
-export default connect(mapStateToProps, {add})(App);
+export default connect(mapStateToProps, {add, toggle})(App);

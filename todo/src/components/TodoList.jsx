@@ -4,8 +4,12 @@ import Todo from './Todo';
 const TodoList = (props) => {
     return (
         <div>
+            {console.log(props)}
             <h1>TodoList</h1>
-            {props.todos.map(todo => <Todo key={Math.random()} value={todo.value} completed={todo.completed}></Todo>)}
+            {props.todos.map(todo => {
+                return <Todo onClick={() => props.toggle(todo.id)} key={todo.id} id={todo.id} value={todo.value} completed={todo.completed}></Todo>
+                }
+            )}
         </div>
     )
 }

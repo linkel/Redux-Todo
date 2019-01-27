@@ -1,4 +1,5 @@
 export const ADD = 'ADD';
+export const TOGGLE = 'TOGGLE';
 
 // Our action creators will return
 // an action packet that our reducer will
@@ -8,10 +9,20 @@ export const ADD = 'ADD';
 // logic of updating the central Redux store. That
 // is left to the reducer(s).
 
+let nextTodoId = 0
+
 export const add = (text) => {
   // Fill in this function
   return {
     type : ADD,
+    id : nextTodoId++,
     text : text,
+  }
+};
+
+export const toggle = (id) => {
+  return {
+    type : TOGGLE,
+    id : id
   }
 };
