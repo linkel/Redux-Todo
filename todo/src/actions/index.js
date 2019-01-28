@@ -10,7 +10,7 @@ export const DELETE = 'DELETE';
 // logic of updating the central Redux store. That
 // is left to the reducer(s).
 
-let nextTodoId = 0
+let nextTodoId = Math.floor(10000*Math.random());
 
 export const add = (text) => {
   // Fill in this function
