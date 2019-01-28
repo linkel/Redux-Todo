@@ -1,5 +1,6 @@
 export const ADD = 'ADD';
 export const TOGGLE = 'TOGGLE';
+export const DELETE = 'DELETE';
 
 // Our action creators will return
 // an action packet that our reducer will
@@ -23,6 +24,13 @@ export const add = (text) => {
 export const toggle = (id) => {
   return {
     type : TOGGLE,
+    id : id
+  }
+};
+
+export const deleteTodo = (id) => {
+  return {
+    type: DELETE,
     id : id
   }
 };

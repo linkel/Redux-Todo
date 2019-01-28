@@ -7,7 +7,7 @@ const TodoList = (props) => {
             {console.log(props)}
             <h1>TodoList</h1>
             {props.todos.map(todo => {
-                return <Todo onClick={() => props.toggle(todo.id)} key={todo.id} id={todo.id} value={todo.value} completed={todo.completed}></Todo>
+                return <Todo delete={props.delete} onClick={() => props.toggle(todo.id)} key={todo.id} id={todo.id} value={todo.value} completed={todo.completed}></Todo>
                 }
             )}
         </div>

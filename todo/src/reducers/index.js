@@ -1,5 +1,6 @@
 import { ADD } from '../actions';
 import { TOGGLE } from '../actions';
+import { DELETE } from '../actions';
 
 const initialState = {
   todos: [
@@ -16,11 +17,6 @@ const initialState = {
   ]
 }
 
-// Our reducer that handles our two action cases:
-// increment and decrement. It receives the state
-// of our redux store, along with an action created
-// by our action creator. What does the reducer
-// need to do with the count in each case?
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD:
@@ -39,6 +35,10 @@ export default (state = initialState, action) => {
         todos: state.todos.map(todo =>
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
       )})
+    case DELETE:
+    return Object.assign({}, state, {
+      todos: state.todos.filter(todo => todo.id !== action.id)
+    })
     default:
       return state;
   }
